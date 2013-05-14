@@ -7,5 +7,5 @@
 (insert topics 
   (values {:name topicname :votes 0})))
 
-(defn list []
+(defn get-all []
   (select topics))

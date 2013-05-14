@@ -13,7 +13,7 @@
          (text-field "topicname" )
          (submit-button "Create"))
     [:ul
-     (map common/topic (topic/list))]))
+     (map common/topic (topic/get-all))]))
 
 (defpage [:post "/add-topic"] {:as topic}
   (topic/save topic)
