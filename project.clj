@@ -6,5 +6,5 @@
                            [mysql/mysql-connector-java "5.1.6"]
                            [environ "0.4.0"]]
             :main dojo-voter.server
-            :profiles {:production {:env {:production true}}})
+            :profiles {:production {:env {:production true :port 80}}})
 
