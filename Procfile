@@ -1,1 +1,1 @@
-web: PORT=80 lein run -m dojo-voter.server
+web: lein with-profile production trampoline run -m dojo-voter.server 
