@@ -1,1 +1,1 @@
-web: lein with-profile production trampoline run -m dojo-voter.server 
+web: lein with-profile production run -m dojo-voter.server 
