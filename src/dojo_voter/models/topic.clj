@@ -6,3 +6,6 @@
   [{:keys [topicname]}]
 (insert topics 
   (values {:name topicname :votes 0})))
+
+(defn list []
+  (select topics))

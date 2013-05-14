@@ -1,22 +1,20 @@
 (ns dojo-voter.views.welcome
   (:require [dojo-voter.views.common :as common]
             [noir.content.getting-started]
-            [dojo-voter.models.topic :as topic])
+            [dojo-voter.models.topic :as topic]
+            [noir.response :as resp])
   (:use [noir.core :only [defpage]]
          [hiccup.form]))
 
 (defpage "/" []
-         (common/layout
-           [:p "Welcome to dojo-voter"]
-           (form-to [:post "/add-topic"]
-               (text-field "topicname" )
-               (submit-button "Create"))
-         [:div#cnt 
-          [:a {:href "vote-up"} "vote up" ]
-          [:a {:href "vote-down"} "vote down" ]
-          [:span ]]))
+   (common/layout
+     [:p "Welcome to dojo-voter"]
+     (form-to [:post "/add-topic"]
+         (text-field "topicname" )
+         (submit-button "Create"))
+    [:ul
+     (map common/topic (topic/list))]))
 
 (defpage [:post "/add-topic"] {:as topic}
-  (common/layout
-    (topic/save topic)
-    [:h1 "saved topic" ]))
+  (topic/save topic)
+  (resp/redirect "/"))
