@@ -1,1 +1,1 @@
-web: lein run
+web: PORT=80 lein run -m dojo-voter.server
